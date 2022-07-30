@@ -10,7 +10,7 @@ help:
 build:
 	docker-compose build
 up:
-	docker-compose up -d
+	docker-compose up
 
 php: ## enter dev container
 	docker exec -it kravets-family_php_1 bash
