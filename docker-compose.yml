@@ -16,7 +16,7 @@ services:
             args:
                 TIMEZONE: ${TIMEZONE}
         volumes:
-            - .:/var/www/symfony
+            - ./:/var/www/symfony
             - ./logs/symfony:/var/www/symfony/app/logs
     nginx:
         build: docker/nginx
