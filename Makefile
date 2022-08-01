@@ -1,8 +1,9 @@
+#SHELL := /bin/bash
 .PHONY: help
 
-.SILENT:
+#.SILENT:
 
-dc_env := docker-compose --env-file=.env
+DOCKER_PHP=docker exec kravets-family_php_1 bash -c
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -12,8 +13,11 @@ build:
 up:
 	docker-compose up
 
-php: ## enter dev container
+php: ## enter php container
 	docker exec -it kravets-family_php_1 bash
+
+db: ## enter db container
+	docker exec -it kravets-family_db_1 bash
 
 clear: ## remove all cached data
 	docker-compose stop && docker-compose rm -fv
@@ -26,3 +30,9 @@ down:
 
 ps:
 	docker ps
+
+migrate:
+	$(DOCKER_PHP) "php bin/console doctrine:migrations:migrate"
+
+diff:
+	$(DOCKER_PHP) "php bin/console doctrine:migrations:diff"
