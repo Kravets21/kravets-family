@@ -1,3 +1,15 @@
 user:
     path: /user
     controller: App\Controller\UserController::index
+
+homepage:
+    path: app_homepage
+    controller: App\Controller\HomepageController::index
+
+#firewalls:
+#    main:
+#        guard:
+#            authenticators:
+#                - App\Security\LoginFormAuthenticator
+#        logout:
+#            path: app_logout
