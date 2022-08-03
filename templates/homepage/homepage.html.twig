@@ -9,8 +9,13 @@
     </style>
 
     <div class="example-wrapper">
-        <h1>{{ controller_name }}! ✅</h1>
+        {% if user %}
+            <h1>{{ user }}</h1>
+        {% else %}
+            <h1>Loh</h1>
+        {% endif %}
 
-        This friendly message is coming from homepage
+
+        homepage
     </div>
 {% endblock %}

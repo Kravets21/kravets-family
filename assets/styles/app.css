@@ -1,3 +1,123 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline:none;
+    font-family: "open-sans",sans-serif;
+    font-size: 14px;
+}
+
+html,body {
+    height:100vh;
+    width: 100%;
+}
+
+a {
+    text-decoration: none !important;
+    outline: none;
+    color: #FFF2D8;
+}
+
+a:hover {
+    color: #999999;
+}
+
 body {
     background-color: lightgray;
+    color: #FFF2D8;
+}
+
+.headercol {
+    width: 100%;
+    height: 75px!important;
+    background-color: rgb(17, 17, 17) !important;
+    color: #FFF2D8 !important;
+}
+
+.headerlogo {
+    color: #FFF2D8;
+    font-size: 25px;
+    text-decoration: none !important;
+}
+
+header a{
+    text-decoration: none !important;
+    outline: none;
+    color: #FFF2D8;
+}
+
+.loginbtn {
+    border-color: #FFF2D8!important;
+    color: #FFF2D8;
+}
+
+.menubtn {
+    border-color: rgb(17, 17, 17) !important;
+}
+
+.loginbtn:hover {
+    background-color: #FDF2DB1A;
+}
+
+.footer {
+    height: 50px!important;
+}
+
+.loginpage {
+    overflow: auto;
+    /*height: 100%;*/
+    width: 100%;
+    background-color: rgb(17, 17, 17);
+    height:100vh;
+}
+
+.loginpageright {
+    overflow: auto;
+    background-color: white;
+    height:100vh;
+}
+
+.loginform {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 200px;
+}
+
+.logIn {
+    overflow: hidden;
+}
+
+.loginBtny {
+    background: #4FD1C5;
+    color: white;
+}
+
+.loginBtny:hover {
+    background: #4FD1C5;
+    color: white;
+}
+
+.inputLogin {
+    width: 500px;
+    border-right:2px;
+    border-left:2px;
+    border-top: 2px;
+    border-color: rgb(17, 17, 17);
+    border-radius: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    background-image: none;
+}
+.inputLogin:active, .inputLogin:focus, .inputLogin:hover {
+    border-style: outset;
+    text-decoration: none;
+    background-image: none;
+    outline: none;
 }
