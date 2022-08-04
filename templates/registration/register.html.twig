@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Login{% endblock %}</title>
+    <title>{% block title %}Registration{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -67,42 +67,42 @@
         </div>
     </div>
     <div class="loginpageright col-8">
-        <form class="loginform" method="post">
+        <div class="loginform">
             {% if app.user %}
                 <div class="mb-3">
                     Ты уже зашел как {{ app.user.username }}, <a href="{{ path('app_logout') }}">Выйти</a>
                 </div>
             {% endif %}
 
-            <h1 class="h3 mb-3 hh1">Ну, привет...</h1>
+            <h1 class="h3 mb-3 hh1">Регистрация</h1>
 
-            {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
-            <label class="mt-5" for="inputEmail">Тут вроде емейл надо</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control inputLogin" autocomplete="email" required>
-            <label class="mt-5" for="inputPassword">А тут пароль</label>
-            <input type="password" name="password" id="inputPassword" class="form-control inputLogin" autocomplete="current-password" required>
-
-            <input type="hidden" name="csrf_token"
-                   value="{{ csrf_token('authenticate') }}"
-            >
+            {{ form_start(registrationForm) }}
+            {{ form_label(registrationForm.email, 'Почта', {'label_attr': {'class': 'foo'}}) }}
+            {{ form_widget(registrationForm.email, {'label': 'Submit me', 'attr': {'class': 'form-control inputLogin'}}) }}
+            {{ form_label(registrationForm.name, 'Имя', {'label_attr': {'class': 'foo'}}) }}
+            {{ form_widget(registrationForm.name, {'label': 'Submit me','attr': {'class': 'form-control inputLogin'}}) }}
+            {{ form_label(registrationForm.plainPassword, 'Пароль', {'label_attr': {'class': 'foo'}}) }}
+            {{ form_widget(registrationForm.plainPassword, {'label': 'Submit me','attr': {'class': 'form-control inputLogin'}}) }}
 
             <div class="row btnsforlogin">
-                <button class="col-2 btn btn-lg btn-primar loginBtny mt-5" type="submit">
-                    Войти
+                <button type="submit" class="col-2 btn btn-lg btn-primar loginBtny mt-5">
+                    Зарегаться
                 </button>
                 <div class="col-2"></div>
-                <a href="/register" class="col-2 btn btn-lg btn-primar loginBtny mt-5">Зарегаться</a>
+                <a href="/" class="col-2 btn btn-lg btn-primar loginBtny mt-5" >
+                    Назад
+                </a>
             </div>
-        </form>
+            {{ form_end(registrationForm) }}
+        </div>
 
         <div class="row textlogin">
-            <p class="">Та что? Нормальный дизайн, типо "минимализм"</p>
-            <p class="">Я не фронтенд вообще-то, ясно?</p>
+            <p class="">Раз такой умный, мог бы сам дизайн сделать...</p>
+            <p class="">...Выдохни!...</p>
         </div>
     </div>
 </div>
 
 </body>
 </html>
+

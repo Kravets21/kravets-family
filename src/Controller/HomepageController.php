@@ -18,7 +18,7 @@ class HomepageController extends AbstractController
         }
 
         return $this->render('homepage/homepage.html.twig', [
-            'user' => $this->getUser()
+            'user' => $this->getUser()->getUsername()
         ]);
     }
 }
