@@ -25,8 +25,11 @@ a:hover {
 }
 
 body {
-    background-color: lightgray;
-    color: #FFF2D8;
+    background-color: white;
+    color: #4FD1C5;
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 700;
 }
 
 .headercol {
@@ -55,6 +58,8 @@ header a{
 
 .menubtn {
     border-color: rgb(17, 17, 17) !important;
+    display: inline-flex;
+    align-items: center;
 }
 
 .loginbtn:hover {
@@ -120,4 +125,61 @@ header a{
     text-decoration: none;
     background-image: none;
     outline: none;
+}
+
+.headerimg {
+    background-color: #b3ada1;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.headerb {
+    margin-left: 10px;
+}
+
+.card {
+
+}
+
+.card a{
+    color: #4FD1C5;
+}
+
+.card a:hover{
+    color: #137770;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid #4FD1C5;
+    margin-bottom: 50px;
+}
+
+header {
+    margin-bottom: 50px;
+}
+
+.h1main {
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.card .remove {
+    color: #B0413E;
+    margin-left: 70px;
+}
+
+.card .remove:hover {
+    color: #770a01;
+}
+
+.card {
+    color: #2D3748;
+    border-radius: 10%;
+}
+
+.bluetext {
+    color: #4FD1C5;
 }

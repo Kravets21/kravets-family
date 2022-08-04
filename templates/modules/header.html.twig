@@ -1,15 +1,26 @@
-<header class="header navbar navbar-expand-lg bg-dark shadow-sm fixed-top bc headercol">
+<header class="header navbar navbar-expand-lg bg-dark shadow-sm  bc headercol">
     <div class="container px-3">
         <a href="/" class="col col-lg-2 headerlogo">Kravets Family</a>
         <div class="row-lg-2">
-            <a href="/login" class="btn loginbtn menubtn">Заметки</a>
-            <a href="/register" class="btn  loginbtn menubtn">Календарь</a>
-            <a href="/register" class="btn  loginbtn menubtn">Рецепты</a>
-            <a href="/register" class="btn  loginbtn menubtn">Фонд Цитат</a>
+            <a href="/note/list" class="btn loginbtn menubtn">
+                <img class="headerimg" src="{{ asset('assets/img/notes.png') }}" alt="">
+                <b class="headerb">Заметки</b>
+            </a>
+            <a href="/calendar" class="btn loginbtn menubtn">
+                <img class="headerimg" src="{{ asset('assets/img/calendar.png') }}" alt="">
+                <b class="headerb">Каленарь</b>
+            </a>
+            <a href="/reciept/list" class="btn loginbtn menubtn">
+                <img class="headerimg" src="{{ asset('assets/img/recipe.png') }}" alt="">
+                <b class="headerb">Рецепты</b>
+            </a>
+            <a href="/quote/list" class="btn loginbtn menubtn">
+                <img class="headerimg" src="{{ asset('assets/img/quote.png') }}" alt="">
+                <b class="headerb">Фонд Цитат</b>
+            </a>
         </div>
         <div class="row-lg-1">
-            <a href="/login" class="btn m-2 loginbtn">Профиль</a>
-            <a href="/logout" class="btn  m-2 loginbtn">Выйти</a>
+            <a href="/logout" class="btn loginbtn">Выйти</a>
         </div>
     </div>
 </header>

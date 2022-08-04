@@ -12,10 +12,14 @@
         {% endblock %}
     </head>
     <body>
-        {% include 'modules/header.html.twig' %}
-        <div class="container mt-5">
-             {% block body %}{% endblock %}
-        </div>
-        {% include 'modules/footer.html.twig' %}
+
+            {% include 'modules/header.html.twig' %}
+            <div class="container">
+             {% block body %}
+
+             {% endblock %}
+            </div>
+            {% include 'modules/footer.html.twig' %}
+
     </body>
 </html>

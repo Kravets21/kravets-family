@@ -70,7 +70,7 @@
         <div class="loginform">
             {% if app.user %}
                 <div class="mb-3">
-                    Ты уже зашел как {{ app.user.username }}, <a href="{{ path('app_logout') }}">Выйти</a>
+                    Ты уже зашел как {{ app.user.username }}, <a href="{{ path('app_logout') }}" class="loginBtny">Выйти</a>
                 </div>
             {% endif %}
 
