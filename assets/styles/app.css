@@ -183,3 +183,17 @@ header {
 .bluetext {
     color: #4FD1C5;
 }
+
+.createRecipe:hover {
+    background-color: rgba(79, 209, 197, 0.25);
+}
+
+.plusRecipe {
+    text-align: center;
+    color: #4FD1C5;
+    font-size: 100px;
+}
+
+.settingsBtn {
+    margin-right: 10px;
+}

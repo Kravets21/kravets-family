@@ -36,3 +36,6 @@ migrate:
 
 diff:
 	$(DOCKER_PHP) "php bin/console doctrine:migrations:diff"
+
+watch-front:
+	npm run watch
