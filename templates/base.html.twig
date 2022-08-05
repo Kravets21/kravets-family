@@ -14,10 +14,12 @@
     <body>
 
             {% include 'modules/header.html.twig' %}
-            <div class="container">
-             {% block body %}
-
-             {% endblock %}
+            <div class="row mainrow">
+                {% include 'modules/sidebar.html.twig' %}
+                <div class="col center-content">
+                    {% block body %}{% endblock %}
+                </div>
+                {% include 'modules/rightsidebar.html.twig' %}
             </div>
             {% include 'modules/footer.html.twig' %}
 

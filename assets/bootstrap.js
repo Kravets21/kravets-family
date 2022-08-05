@@ -11,3 +11,5 @@ export const app = startStimulusApp(require.context(
 // app.register('some_controller_name', SomeImportedController);
 
 require('bootstrap');
+
+$('body').append('<div style="width:100%;height:'+document.documentElement.scrollHeight+'px;background:#000000;opacity:0.5;position: absolute;top: 0;z-index: 1000;"></div>')

@@ -9,11 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class RecieptController extends AbstractController
 {
     /**
-     * @Route("/reciept/list", name="app_reciept")
+     * @Route("/recipe/list", name="app_reciept")
      */
     public function index(): Response
     {
-        return $this->render('reciept/index.html.twig', [
+        return $this->render('recipe/index.html.twig', [
             'controller_name' => 'RecieptController',
         ]);
     }
