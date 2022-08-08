@@ -252,3 +252,26 @@ header {
     border-right: 20px solid white;
     border-bottom: 15px solid transparent;
 }
+
+.headerlogo b {
+    font-weight: normal;
+    font-size: 25px;
+}
+
+.pagination a{
+    color: black !important;
+}
+
+.card-text {
+    width: 100%;
+    -webkit-line-clamp: 7; /* Число отображаемых строк */
+    display: -webkit-box; /* Включаем флексбоксы */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    overflow: hidden;
+}
+
+.card-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

@@ -1,0 +1,20 @@
+{% set page = app.request.query.get('page') %}
+{% set itemsOnPage = 16 %}
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page == null %}
+            {% set page = 1 %}
+        {% endif %}
+        {% if page != 1 %}
+            <li class="page-item"><a class="page-link" href="/recipe/list?page={{ page-1 }}">Назад</a></li>
+        {% endif %}
+        {% set pageNumbers = (array|length/itemsOnPage)|round %}
+        {% for i in 1..pageNumbers %}
+            {% if i != 0 %}
+                <li class="page-item"><a class="page-link" href="/recipe/list?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        <li class="page-item"><a class="page-link" href="/recipe/list?page={{ page+1 }}">Следующая</a></li>
+    </ul>
+</nav>

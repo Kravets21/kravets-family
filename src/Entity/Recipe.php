@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ReceiptRepository;
+use App\Repository\RecipeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ReceiptRepository::class)
+ * @ORM\Entity(repositoryClass=RecipeRepository::class)
  */
-class Receipt
+class Recipe
 {
     /**
      * @ORM\Id

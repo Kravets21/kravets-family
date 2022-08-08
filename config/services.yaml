@@ -32,6 +32,7 @@ services:
         tags: ['controller.service_arguments']
 
     Symfony\Component\Security\Core\Encoder\UserPasswordEncoder: '@security.password_encoder'
+#    Symfony\Component\Routing\Generator\UrlGenerator: '@Symfony\Component\Routing\Generator\UrlGeneratorInterface'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
