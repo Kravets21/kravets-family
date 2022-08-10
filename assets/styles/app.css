@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     outline:none;
-    font-family: "open-sans",sans-serif;
+    font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 14px;
 }
 
@@ -190,6 +190,14 @@ header {
     background-color: rgba(79, 209, 197, 0.25);
 }
 
+.card-body{
+    text-align: center;
+}
+
+.card-title{
+    text-align: center;
+}
+
 .plusRecipe {
     text-align: center;
     color: #4FD1C5;
@@ -268,10 +276,66 @@ header {
     display: -webkit-box; /* Включаем флексбоксы */
     -webkit-box-orient: vertical; /* Вертикальная ориентация */
     overflow: hidden;
+    min-height: 150px;
+    font-weight: 100;
 }
 
 .card-title {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    font-weight: 600;
+}
+
+.formInput {
+    height: 45px;
+    margin-top: -10px;
+    z-index: -1;
+    padding: 10px 20px;
+    width: 50vw;
+    border-color: #A0AEC0;
+    margin-bottom: 30px;
+}
+
+.symfonyForm {
+    display: flex;
+    justify-content: center;
+    color: #A0AEC0;
+    width: 100%;
+}
+
+.formErrors {
+    color: #B0413E;
+}
+
+.formLabel {
+    margin-left: 20px;
+    background: #FFF;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.inputTextarea {
+    height: 400px!important;
+}
+
+.itemsList {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    gap: 40px;
+}
+
+.formbutton {
+    margin-left: 10px;
+    text-align: center;
+    font-size: 20px;
+    width: 17%;
+    background: #4FD1C5;
+    height: 40px;
+    color: white;
+}
+
+.formbutton:hover {
+    background: #0a6b64;
 }

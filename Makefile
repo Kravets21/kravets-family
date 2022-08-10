@@ -11,7 +11,7 @@ help:
 build:
 	docker-compose build && docker-compose up
 up:
-	docker-compose up
+	docker-compose up -d
 
 php: ## enter php container
 	docker exec -it kravets-family_php_1 bash
@@ -37,5 +37,5 @@ migrate:
 diff:
 	$(DOCKER_PHP) "php bin/console doctrine:migrations:diff"
 
-watch-front:
+watch:
 	npm run watch
