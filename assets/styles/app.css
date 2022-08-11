@@ -354,3 +354,77 @@ header {
     border-color: #A0AEC0;
     margin-top: 15px;
 }
+
+.d-block {
+    border-radius: 20px;
+    margin-left: 15%;
+    height: 25vh;
+    width: 70% !important;
+}
+
+.btncr {
+    color: black;
+}
+
+.carousel-caption {
+    background-color: #9e988cd4;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-left: 10%;
+    width: 50%;
+}
+.carousel-caption h5{
+    background-color: #9e988cd4;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-left: 10%;
+    width: 50%;
+}
+
+.slide button {
+    background-color: #9e988cd4;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    margin: 73px;
+}
+
+.dropdown-toggle {
+    filter: brightness(100%)!important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    font-weight: 900!important;
+    color: #FFF2D8!important;
+}
+
+.dropdown-toggle:hover {
+    filter: brightness(100%)!important;
+    color: #4FD1C5!important;
+}
+
+.dropdown-menu {
+    filter: brightness(100%)!important;
+    width: 210px;
+    transform: translate3d(0px, 44px, 0px)!important;
+    border-radius: 5px;
+    background: #191816;
+}
+
+.dropdown-menu a{
+    filter: brightness(100%)!important;
+    font-size: 15px;
+    font-weight: 900;
+    color: #FFF2D8;
+}
+
+.dropdown-menu a:hover{
+    color: #4FD1C5;
+    background-color: #302E2A;
+}
+
+.btn-group:hover {
+    background-color: #191816;
+}
+

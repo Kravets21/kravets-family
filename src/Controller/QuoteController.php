@@ -30,7 +30,7 @@ class QuoteController extends AbstractController
     }
 
     /**
-     * @Route("/quote/list", name="app_quote")
+     * @Route("/quote/list", name="app_note")
      */
     public function index(): Response
     {
@@ -43,7 +43,7 @@ class QuoteController extends AbstractController
     }
 
     /**
-     * @Route("/quote/{id}/delete", name="app_quote")
+     * @Route("/quote/{id}/delete", name="app_quote_delete")
      */
     public function delete(Request $request): Response
     {
@@ -69,7 +69,7 @@ class QuoteController extends AbstractController
     }
 
     /**
-     * @Route("/quote/add", name="app_quote")
+     * @Route("/quote/add", name="app_quote_create")
      */
     public function create(Request $request): Response
     {

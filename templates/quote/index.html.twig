@@ -14,26 +14,38 @@
             </div>
         {% endfor %}
 
-        <div class="itemsList">
-            <a class="card createRecipe" href="/recipe/create" style="width: 18rem;">
-                <div class="card-body">
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    {{ quotes|length }}
-                  </span>
-                    <h3 class="card-title mb-4 bluetext btn-primary">Добавить Цитату</h3>
-                    <p class="plusRecipe">+</p>
-                </div>
-            </a>
-            {% for recipe in quotes %}
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title mb-4 bluetext">{{ recipe.title }}</h5>
-                        <p class="card-text">{{ recipe.author }}</p>
-                        <a href="/qoute/{{ recipe.id }}" class="card-link">Открыть</a>
-                        <a class="card-link remove" href="/qoute/{{ recipe.id }}/delete">Удалить</a>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img src="{{ asset('assets/img/quotesbc.jpeg') }}" class="d-block" alt="...">
+                    <div class="carousel-caption d-none d-md-block colo">
+                        <h1>Делим на два и получаем двойную прибыль</h1>
+                        <p>©Юра</p>
                     </div>
                 </div>
-            {% endfor %}
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="{{ asset('assets/img/quotesbc.jpeg') }}" class="d-block" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Как по маслу</h1>
+                        <p>©Вадик</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="{{ asset('assets/img/quotesbc.jpeg') }}" class="d-block" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Выдохни</h1>
+                        <p>©Женя</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="btncr">Назад</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="btncr">След</span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
         </div>
     </div>
 {% endblock %}

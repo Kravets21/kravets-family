@@ -4,7 +4,7 @@
     <div class="triangle justify-content-end"></div>
         <div class="row-lg-2 menu-control">
             <a href="/" class="btn loginbtn menubtn">
-                <img class="headerimg" src="{{ asset('assets/img/photo_2022-08-04_11-05-29.png') }}" alt="">
+                <img class="headerimg" src="{{ asset('assets/img/icons8-home-24.png') }}" alt="">
                 <b class="headerb">Главная</b>
             </a>
             <a href="/note/list" class="btn loginbtn menubtn">
@@ -23,5 +23,16 @@
                 <img class="headerimg" src="{{ asset('assets/img/quote.png') }}" alt="">
                 <b class="headerb">Фонд Цитат</b>
             </a>
+            <div class="btn-group btn loginbtn menubtn">
+                <img class="headerimg" src="{{ asset('assets/img/movie.png') }}" alt="">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    Списки
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/quote/list">Аниме</a></li>
+                    <li><a class="dropdown-item" href="/quote/list">Книги</a></li>
+                    <li><a class="dropdown-item" href="/quote/list">Сериалы/Фильмы</a></li>
+                </ul>
+            </div>
         </div>
 </div>
