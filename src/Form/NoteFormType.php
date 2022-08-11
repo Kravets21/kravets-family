@@ -2,9 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\Recipe;
+use App\Entity\Note;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,15 +11,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-final class RecipeFormType extends AbstractType
+final class NoteFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
+            ->add('title', TextType::class, [
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Название рецепта не может быть пустым!',
+                        'message' => 'Название заметки не может быть пустым!',
                     ]),
                     new Length([
                         'min' => 4,
@@ -31,10 +30,10 @@ final class RecipeFormType extends AbstractType
             ->add('description', TextareaType::class, [
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Описание рецепта не может быть пустым!',
+                        'message' => 'Описание заметки не может быть пустым!',
                     ]),
                     new Length([
-                        'min' => 10,
+                        'min' => 5,
                         'minMessage' => 'Описание не может быть меньше {{ limit }} символов',
                     ]),
                 ]
@@ -44,7 +43,7 @@ final class RecipeFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Recipe::class,
+            'data_class' => Note::class,
         ]);
     }
 

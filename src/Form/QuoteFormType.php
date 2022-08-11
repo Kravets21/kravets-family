@@ -2,9 +2,9 @@
 
 namespace App\Form;
 
-use App\Entity\Recipe;
+use App\Entity\Note;
+use App\Entity\Quote;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,15 +12,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-final class RecipeFormType extends AbstractType
+final class QuoteFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
+            ->add('title', TextType::class, [
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Название рецепта не может быть пустым!',
+                        'message' => 'Название не может быть пустым!',
                     ]),
                     new Length([
                         'min' => 4,
@@ -28,14 +28,14 @@ final class RecipeFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('description', TextareaType::class, [
+            ->add('author', TextareaType::class, [
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Описание рецепта не может быть пустым!',
+                        'message' => 'Автор не может быть пустым!',
                     ]),
                     new Length([
-                        'min' => 10,
-                        'minMessage' => 'Описание не может быть меньше {{ limit }} символов',
+                        'min' => 2,
+                        'minMessage' => 'Имя Автора не может быть меньше {{ limit }} символов',
                     ]),
                 ]
             ]);
@@ -44,7 +44,7 @@ final class RecipeFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Recipe::class,
+            'data_class' => Quote::class,
         ]);
     }
 

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\RecipeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=RecipeRepository::class)
@@ -31,6 +32,12 @@ class Recipe
      * @ORM\Column(type="datetime_immutable")
      */
     private ?\DateTimeImmutable $created_at;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $userId;
 
     public function getId(): ?int
     {
@@ -71,5 +78,15 @@ class Recipe
         $this->created_at = $created_at;
 
         return $this;
+    }
+
+    public function setUser(UserInterface $user)
+    {
+        $this->userId = $user;
+    }
+
+    public function getUser()
+    {
+        return $this->userId;
     }
 }

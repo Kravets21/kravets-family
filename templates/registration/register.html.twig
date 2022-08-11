@@ -89,13 +89,13 @@
             {{ form_widget(registrationForm.plainPassword, {'label': 'Submit me','attr': {'class': 'form-control inputLogin'}}) }}
 
             <div class="row btnsforlogin">
-                <button type="submit" class="col-2 btn btn-lg btn-primar loginBtny mt-5">
-                    Зарегаться
-                </button>
-                <div class="col-2"></div>
                 <a href="/" class="col-2 btn btn-lg btn-primar loginBtny mt-5" >
                     Назад
                 </a>
+                <div class="col-2"></div>
+                <button type="submit" class="col-2 btn btn-lg btn-primar loginBtny mt-5">
+                    Зарегаться
+                </button>
             </div>
             {{ form_end(registrationForm) }}
         </div>

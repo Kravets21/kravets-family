@@ -17,6 +17,9 @@
     <div class="itemsList">
         <a class="card createRecipe" href="/recipe/create" style="width: 18rem;">
             <div class="card-body">
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{ recipes|length }}
+                  </span>
                 <h3 class="card-title mb-4 bluetext btn-primary">Добавить Рецепт</h3>
                 <p class="plusRecipe">+</p>
             </div>

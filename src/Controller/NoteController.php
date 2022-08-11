@@ -3,10 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Note;
-use App\Entity\Recipe;
-use App\Form\RecipeFormType;
+use App\Form\NoteFormType;
 use App\Repository\NoteRepository;
-use App\Repository\RecipeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -25,8 +23,7 @@ class NoteController extends AbstractController
         UrlGeneratorInterface $urlGenerator,
         NoteRepository $noteRepository,
         EntityManagerInterface $entityManager
-    )
-    {
+    ) {
         $this->entityManager = $entityManager;
         $this->urlGenerator = $urlGenerator;
         $this->noteRepository = $noteRepository;
@@ -37,7 +34,7 @@ class NoteController extends AbstractController
      */
     public function index(): Response
     {
-        $data = $this->noteRepository->findAll();
+        $data = $this->noteRepository->findBy(['userId' => $this->getUser()->eraseCredentials()['id']]);
 
         return $this->render('note/index.html.twig', [
             'notes' => $data,
@@ -50,18 +47,19 @@ class NoteController extends AbstractController
     public function create(Request $request): Response
     {
         $note = new Note();
-        $form = $this->createForm(RecipeFormType::class, $note);
+        $form = $this->createForm(NoteFormType::class, $note);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $note->setName($form->get('name')->getData());
+            $note->setTitle($form->get('title')->getData());
             $note->setDescription($form->get('description')->getData());
+            $note->setUser($this->getUser());
             $note->setCreatedAt(new \DateTimeImmutable());
 
             $this->entityManager->persist($note);
             $this->entityManager->flush();
 
-            $this->addFlash('success', 'Рецепт был успешно создан! :)');
+            $this->addFlash('success', 'Заметка была успешно создана! :)');
 
             return new RedirectResponse($this->urlGenerator->generate('app_note'));
         }
@@ -72,64 +70,65 @@ class NoteController extends AbstractController
     }
 
     /**
-     * @Route("/recipe/{id}", name="app_get_recipe")
+     * @Route("/note/{id}", name="app_get_note")
      */
     public function update(Request $request): Response
     {
         $params = $request->attributes->get('_route_params');
 
-        $recipe = $this->recipeRepository->findOneBy(['id' => $params['id']]);
+        $note = $this->noteRepository->findOneBy(['id' => $params['id']]);
 
-        if (!$recipe) {
-            $this->addFlash('Error', 'Рецепт не был найден');
+        if (!$note) {
+            $this->addFlash('Error', 'Заметка не была найдена');
 
-            return new RedirectResponse($this->urlGenerator->generate('app_recipe'));
+            return new RedirectResponse($this->urlGenerator->generate('app_note'));
         }
 
-        $form = $this->createForm(RecipeFormType::class, $recipe);
+        $form = $this->createForm(NoteFormType::class, $note);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $recipe->setName($form->get('name')->getData());
-            $recipe->setDescription($form->get('description')->getData());
+            $note->setTitle($form->get('title')->getData());
+            $note->setDescription($form->get('description')->getData());
 
-            $this->entityManager->persist($recipe);
+            $this->entityManager->persist($note);
             $this->entityManager->flush();
 
-            $this->addFlash('success_update', 'Рецепт был успешно обновлен! :)');
+            $this->addFlash('success_update', 'Замтека была успешно обновлена! :)');
 
-            return new RedirectResponse($this->urlGenerator->generate('app_get_recipe', ['id' => $recipe->getId()]));
+            return new RedirectResponse($this->urlGenerator->generate('app_get_note', ['id' => $note->getId()]));
         }
 
-        return $this->render('recipe/update.html.twig', [
-            'recipeForm' => $form->createView()
+        return $this->render('note/update.html.twig', [
+            'noteForm' => $form->createView(),
+            'createdAt' => $note->getCreatedAt(),
         ]);
     }
 
     /**
-     * @Route("/recipe/{id}/delete", name="app_delete_recipe")
-     * @throws Exception
+     * @Route("/note/{id}/delete", name="app_delete_note")
+     * @throws \Exception
      */
     public function delete(Request $request): Response
     {
         $params = $request->attributes->get('_route_params');
         $id = $params['id'];
 
-        $recipe = $this->recipeRepository->findOneBy(['id' => $id]);
+        $note = $this->noteRepository->findOneBy(['id' => $id]);
 
-        if (!$recipe) {
-            $this->addFlash('Error', 'Рецепт с айди: ' . $id . ' не был найден');
+        if (!$note) {
+            $this->addFlash('Error', 'Заметка с айди: ' . $id . ' не была найдена');
 
-            return new RedirectResponse($this->urlGenerator->generate('app_recipe'));
+            return new RedirectResponse($this->urlGenerator->generate('app_note'));
         }
 
-        $name = $recipe->getName();
+        $name = $note->getTitle();
 
-        $this->entityManager->remove($recipe);
+        $this->entityManager->remove($note);
         $this->entityManager->flush();
 
-        $this->addFlash('success', 'Рецепт: "' . $name . '" был успешно удален! :)');
+        $this->addFlash('success', 'Заметка: "' . $name . '" была успешно удалена! :)');
 
-        return new RedirectResponse($this->urlGenerator->generate('app_recipe'));
+        return new RedirectResponse($this->urlGenerator->generate('app_note'));
     }
 }

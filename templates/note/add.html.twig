@@ -14,13 +14,13 @@
         {{ form_errors(noteForm) }}
 
         <div class="formErrors">
-            {{ form_errors(noteForm.name) }}
+            {{ form_errors(noteForm.title) }}
             {{ form_errors(noteForm.description) }}
         </div>
 
-        {{ form_label(noteForm.name, 'Название Рецепта', {'label_attr': {'class': 'formLabel'}}) }}
-        {{ form_widget(noteForm.name, {'attr': {'class': 'form-control formInput'}}) }}
-        {{ form_label(noteForm.description, 'Описание Рецепта', {'label_attr': {'class': 'formLabel'}}) }}
+        {{ form_label(noteForm.title, 'Заголовок Заметки', {'label_attr': {'class': 'formLabel'}}) }}
+        {{ form_widget(noteForm.title, {'attr': {'class': 'form-control formInput'}}) }}
+        {{ form_label(noteForm.description, 'Описание Заметки', {'label_attr': {'class': 'formLabel'}}) }}
         {{ form_widget(noteForm.description, {'attr': {'class': 'form-control formInput inputTextarea'}}) }}
 
         <div class="row btnsforlogin">

@@ -339,3 +339,18 @@ header {
 .formbutton:hover {
     background: #0a6b64;
 }
+
+.createdAt {
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: 77%;
+}
+
+.createdAt b {
+    font-weight: 900;
+}
+.createdAt .line {
+    border-color: #A0AEC0;
+    margin-top: 15px;
+}

@@ -24,8 +24,7 @@ class RecipeController extends AbstractController
         UrlGeneratorInterface $urlGenerator,
         RecipeRepository $recipeRepository,
         EntityManagerInterface $entityManager
-    )
-    {
+    ) {
         $this->entityManager = $entityManager;
         $this->urlGenerator = $urlGenerator;
         $this->recipeRepository = $recipeRepository;
@@ -36,7 +35,7 @@ class RecipeController extends AbstractController
      */
     public function index(): Response
     {
-        $data = $this->recipeRepository->findAll();
+        $data = $this->recipeRepository->findBy(['userId' => $this->getUser()->eraseCredentials()['id']]);
 
         return $this->render('recipe/index.html.twig', [
             'recipes' => $data,
@@ -55,10 +54,10 @@ class RecipeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $recipe->setName($form->get('name')->getData());
             $recipe->setDescription($form->get('description')->getData());
+            $recipe->setUser($this->getUser());
             $recipe->setCreatedAt(new \DateTimeImmutable());
 
-            $this->entityManager->persist($recipe);
-            $this->entityManager->flush();
+            $this->recipeRepository->add($recipe);
 
             $this->addFlash('success', 'Рецепт был успешно создан! :)');
 
@@ -101,7 +100,8 @@ class RecipeController extends AbstractController
         }
 
         return $this->render('recipe/update.html.twig', [
-            'recipeForm' => $form->createView()
+            'recipeForm' => $form->createView(),
+            'createdAt' => $recipe->getCreatedAt(),
         ]);
     }
 
@@ -124,8 +124,7 @@ class RecipeController extends AbstractController
 
         $name = $recipe->getName();
 
-        $this->entityManager->remove($recipe);
-        $this->entityManager->flush();
+        $this->recipeRepository->remove($recipe);
 
         $this->addFlash('success', 'Рецепт: "' . $name . '" был успешно удален! :)');
 

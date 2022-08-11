@@ -57,9 +57,12 @@ class User implements UserInterface
         return $this->getName();
     }
 
-    public function eraseCredentials()
+    public function eraseCredentials(): array
     {
-        // TODO: Implement eraseCredentials() method.
+        return [
+            'id' => $this->getId(),
+            'email' => $this->getEmail(),
+        ];
     }
 
     /**

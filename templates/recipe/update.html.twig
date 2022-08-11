@@ -23,7 +23,7 @@
             {{ form_errors(recipeForm.name) }}
             {{ form_errors(recipeForm.description) }}
         </div>
-
+        <div class="createdAt">Дата создания: <b>{{ createdAt|date("m/d/Y") }}</b><div class="line"></div></div>
         {{ form_label(recipeForm.name, 'Название Рецепта', {'label_attr': {'class': 'formLabel'}}) }}
         {{ form_widget(recipeForm.name, {'attr': {'class': 'form-control formInput'}}) }}
         {{ form_label(recipeForm.description, 'Описание Рецепта', {'label_attr': {'class': 'formLabel'}}) }}

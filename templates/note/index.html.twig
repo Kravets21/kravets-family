@@ -15,16 +15,20 @@
     {% endfor %}
 
     <div class="itemsList">
-        <a class="card createRecipe" href="/recipe/create" style="width: 18rem;">
+        <a class="card createRecipe" href="/note/create" style="width: 18rem;">
             <div class="card-body">
-                <h3 class="card-title mb-4 bluetext btn-primary">Добавить Заметку</h3>
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{ notes|length }}
+                  </span>
+                <h3 class="card-title mb-4 bluetext btn-primary fs-4">
+                    Добавить Заметку</h3>
                 <p class="plusRecipe">+</p>
             </div>
         </a>
         {% for note in notes %}
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title mb-4 bluetext">{{ note.name }}</h5>
+                    <h5 class="card-title mb-4 bluetext">{{ note.title }}</h5>
                     <p class="card-text">{{ note.description }}</p>
                     <a href="/note/{{ note.id }}" class="card-link">Открыть</a>
                     <a class="card-link remove" href="/note/{{ note.id }}/delete">Удалить</a>
