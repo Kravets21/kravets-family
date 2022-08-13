@@ -7,34 +7,38 @@
     <div class="example-wrapper">
         <h1 class="h1main">Фонд Цитат</h1>
         <div class="line"></div>
-
+        {% if 'ROLE_ADMIN' in app.user.roles  %}
+            <a class="btn formbutton addquote" href="{{ path('app_quote_create') }}">Добавить Цитату</a>
+        {% endif %}
         {% for message in app.flashes('success') %}
             <div class="alert alert-success mb-5">
                 {{ message }}
             </div>
         {% endfor %}
 
+        <h1 class="h2 text-center mb-5">Топ Новых Цитат</h1>
+
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="2000">
                     <img src="{{ asset('assets/img/quotesbc.jpeg') }}" class="d-block" alt="...">
                     <div class="carousel-caption d-none d-md-block colo">
-                        <h1>Делим на два и получаем двойную прибыль</h1>
-                        <p>©Юра</p>
+                        <h1>{{ quotes[quotes|length -1].title }}</h1>
+                        <p>©{{ quotes[quotes|length -1].author }}</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="4000">
                     <img src="{{ asset('assets/img/quotesbc.jpeg') }}" class="d-block" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h1>Как по маслу</h1>
-                        <p>©Вадик</p>
+                        <h1>{{ quotes[quotes|length -2].title }}</h1>
+                        <p>©{{ quotes[quotes|length -2].author }}</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="10000">
                     <img src="{{ asset('assets/img/quotesbc.jpeg') }}" class="d-block" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h1>Выдохни</h1>
-                        <p>©Женя</p>
+                        <h1>{{ quotes[quotes|length -3].title }}</h1>
+                        <p>©{{ quotes[quotes|length -3].author }}</p>
                     </div>
                 </div>
             </div>
@@ -47,5 +51,26 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </button>
         </div>
+
+        <h1 class="h2 text-center mb-5 mt-5">Список Всех Цитат</h1>
+        <div class="line w-75 m-auto"></div>
+        <table class="table mt-5">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" class="text-center">Цитата</th>
+                <th scope="col">Автор</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for quote in quotes %}
+                <tr>
+                    <th scope="row">{{ quote.id }}</th>
+                    <td>{{ quote.title }}</td>
+                    <td>{{ quote.author }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}

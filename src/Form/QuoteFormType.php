@@ -28,7 +28,7 @@ final class QuoteFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('author', TextareaType::class, [
+            ->add('author', TextType::class, [
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Автор не может быть пустым!',

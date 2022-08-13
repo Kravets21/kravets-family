@@ -8,19 +8,19 @@
     <h1 class="h1main">Добавить Цитату</h1>
     <div class="line"></div>
     <div class="symfonyForm">
-        {{ form_start(recipeForm) }}
+        {{ form_start(quoteForm) }}
 
-        {{ form_errors(recipeForm) }}
+        {{ form_errors(quoteForm) }}
 
         <div class="formErrors">
-            {{ form_errors(recipeForm.name) }}
-            {{ form_errors(recipeForm.description) }}
+            {{ form_errors(quoteForm.title) }}
+            {{ form_errors(quoteForm.author) }}
         </div>
 
-        {{ form_label(recipeForm.name, 'Название Рецепта', {'label_attr': {'class': 'formLabel'}}) }}
-        {{ form_widget(recipeForm.name, {'attr': {'class': 'form-control formInput'}}) }}
-        {{ form_label(recipeForm.description, 'Описание Рецепта', {'label_attr': {'class': 'formLabel'}}) }}
-        {{ form_widget(recipeForm.description, {'attr': {'class': 'form-control formInput inputTextarea'}}) }}
+        {{ form_label(quoteForm.title, 'Цитата', {'label_attr': {'class': 'formLabel'}}) }}
+        {{ form_widget(quoteForm.title, {'attr': {'class': 'form-control formInput'}}) }}
+        {{ form_label(quoteForm.author, 'Автор', {'label_attr': {'class': 'formLabel'}}) }}
+        {{ form_widget(quoteForm.author, {'attr': {'class': 'form-control formInput'}}) }}
 
         <div class="row btnsforlogin">
             <button type="submit" class="btn formbutton mt-5">
@@ -28,7 +28,7 @@
             </button>
         </div>
 
-        {{ form_end(recipeForm) }}
+        {{ form_end(quoteForm) }}
     </div>
 
 </div>

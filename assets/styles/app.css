@@ -428,3 +428,12 @@ header {
     background-color: #191816;
 }
 
+thead {
+    color: #4FD1C5!important;
+}
+
+.addquote {
+    margin-left: 80%!important;
+    margin-bottom: 20px;
+}
+

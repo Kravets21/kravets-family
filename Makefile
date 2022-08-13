@@ -37,5 +37,8 @@ migrate:
 diff:
 	$(DOCKER_PHP) "php bin/console doctrine:migrations:diff"
 
+cache:
+	$(DOCKER_PHP) "php bin/console ca:cl"
+
 watch:
 	npm run watch

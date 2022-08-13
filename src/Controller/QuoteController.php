@@ -30,7 +30,7 @@ class QuoteController extends AbstractController
     }
 
     /**
-     * @Route("/quote/list", name="app_note")
+     * @Route("/quote/list", name="app_quote")
      */
     public function index(): Response
     {
@@ -38,34 +38,7 @@ class QuoteController extends AbstractController
 
         return $this->render('quote/index.html.twig', [
             'quotes' => $quotes,
-            'username' => $this->getUser()->getUsername(),
         ]);
-    }
-
-    /**
-     * @Route("/quote/{id}/delete", name="app_quote_delete")
-     */
-    public function delete(Request $request): Response
-    {
-        $params = $request->attributes->get('_route_params');
-        $id = $params['id'];
-
-        $quote = $this->quoteRepository->findOneBy(['id' => $id]);
-
-        if (!$quote) {
-            $this->addFlash('Error', 'Цитата с айди: ' . $id . ' не была найдена');
-
-            return new RedirectResponse($this->urlGenerator->generate('app_quote'));
-        }
-
-        $name = $quote->getTitle();
-
-        $this->entityManager->remove($quote);
-        $this->entityManager->flush();
-
-        $this->addFlash('success', 'Цитата: "' . $name . '" была успешно удалена! :)');
-
-        return new RedirectResponse($this->urlGenerator->generate('app_note'));
     }
 
     /**
@@ -73,6 +46,8 @@ class QuoteController extends AbstractController
      */
     public function create(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $quote = new Quote();
         $form = $this->createForm(QuoteFormType::class, $quote);
         $form->handleRequest($request);

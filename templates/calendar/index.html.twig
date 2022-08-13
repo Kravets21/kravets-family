@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Фонд Цитат{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1 class="h1main">Календарь Семейных Событий</h1>
+        <div class="line"></div>
+        {% if 'ROLE_ADMIN' in app.user.roles  %}
+            <a class="btn formbutton addquote" href="{{ path('app_quote_create') }}">Добавить Цитату</a>
+        {% endif %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success mb-5">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+
+{% endblock %}
