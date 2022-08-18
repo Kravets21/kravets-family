@@ -9,6 +9,7 @@
 
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('animation') }}
     {% endblock %}
 </head>
 <body>
@@ -73,13 +74,20 @@
                     Ты уже зашел как {{ app.user.username }}, <a href="{{ path('app_logout') }}">Выйти</a>
                 </div>
             {% endif %}
-
-            <h1 class="h3 mb-3 hh1">Ну, привет...</h1>
+            <div class="text">
+                <p class="loginAnimation">
+                    <span class="h3 mb-3 hh1 word ">*Тут_крутая_анимация*</span>
+                    <span class="h3 mb-3 hh1 word ">Ну,_привет....</span>
+                    <span class="h3 mb-3 hh1 word ">Войдешь?</span>
+                    <span class="h3 mb-3 hh1 word ">Надо_вначале_зарегаться</span>
+                    <span class="h3 mb-3 hh1 word ">Ты_еще_тут?..</span>
+                </p>
+            </div>
 
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
-            <label class="mt-5" for="inputEmail">Тут вроде емейл надо</label>
+            <label class="loginLabelFirst mt-5" for="inputEmail">Тут вроде емейл надо</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control inputLogin" autocomplete="email" required>
             <label class="mt-5" for="inputPassword">А тут пароль</label>
             <input type="password" name="password" id="inputPassword" class="form-control inputLogin" autocomplete="current-password" required>

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Заметки{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1 class="h1main">Добавить Заметку</h1>
+    <div class="line"></div>
+
+    <div class="symfonyForm">
+        {{ form_start(bookingForm) }}
+
+        {{ form_errors(bookingForm) }}
+
+        <div class="formErrors">
+            {{ form_errors(bookingForm.title) }}
+            {{ form_errors(bookingForm.beginAt) }}
+            {{ form_errors(bookingForm.endAt) }}
+        </div>
+
+        {{ form_label(bookingForm.title, 'Событие', {'label_attr': {'class': 'formLabel'}}) }}
+        {{ form_widget(bookingForm.title, {'attr': {'class': 'form-control formInput'}}) }}
+        {{ form_label(bookingForm.beginAt, 'Начало', {'label_attr': {'class': 'formLabel'}}) }}
+        {{ form_widget(bookingForm.beginAt, {'attr': {'class': 'form-control formInput '}}) }}
+        {{ form_label(bookingForm.endAt, 'Конец', {'label_attr': {'class': 'formLabel'}}) }}
+        {{ form_widget(bookingForm.endAt, {'attr': {'class': 'form-control formInput '}}) }}
+
+        <div class="row btnsforlogin">
+            <button type="submit" class="btn formbutton mt-5">
+                Создать
+            </button>
+        </div>
+
+        {{ form_end(bookingForm) }}
+    </div>
+
+</div>
+{% endblock %}

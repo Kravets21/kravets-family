@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Аниме!{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1 class="h1main">Добавить Аниме</h1>
+        <div class="line"></div>
+
+        <div class="symfonyForm">
+            {{ form_start(listItemForm) }}
+
+            {{ form_errors(listItemForm) }}
+
+            <div class="formErrors">
+                {{ form_errors(listItemForm.title) }}
+            </div>
+
+            {{ form_label(listItemForm.title, 'Название', {'label_attr': {'class': 'formLabel'}}) }}
+            {{ form_widget(listItemForm.title, {'attr': {'class': 'form-control formInput'}}) }}
+            {{ form_widget(listItemForm.status, {'attr': {'class': 'm-1'}}) }}
+            {{ form_label(listItemForm.status, 'Добавить в избранное? ', {'label_attr': {'class': ''}}) }}
+
+            <div class="row btnsforlogin">
+                <button type="submit" class="btn formbutton mt-5">
+                    Создать
+                </button>
+            </div>
+
+            {{ form_end(listItemForm) }}
+        </div>
+
+    </div>
+{% endblock %}

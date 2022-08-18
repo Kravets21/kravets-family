@@ -1,20 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Фонд Цитат{% endblock %}
+{% block title %}Календарь{% endblock %}
 
 {% block body %}
-
-    <div class="example-wrapper">
-        <h1 class="h1main">Календарь Семейных Событий</h1>
-        <div class="line"></div>
-        {% if 'ROLE_ADMIN' in app.user.roles  %}
-            <a class="btn formbutton addquote" href="{{ path('app_quote_create') }}">Добавить Цитату</a>
-        {% endif %}
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success mb-5">
-                {{ message }}
-            </div>
-        {% endfor %}
-
-
+    <h1 class="h1main">Календарь Семейных Событий</h1>
+    <div class="line"></div>
+    {% if 'ROLE_ADMIN' in app.user.roles  %}
+        <a href="{{ path('app_booking_new') }}" class="btn formbutton addquote">Добавить событие</a>
+    {% endif %}
+    <div id="calendar-holder"></div>
 {% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('calendar') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('calendar') }}
+{% endblock %}
+
