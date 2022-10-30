@@ -18,3 +18,7 @@ Our family website. Just for fun (PET project)
     php bin/console make:controller
 
 Swagger: /api/doc
+
+![image](https://user-images.githubusercontent.com/61024343/198871758-b938f694-8dde-43dc-90a3-595b0a20b592.png)
+
+![image](https://user-images.githubusercontent.com/61024343/198871814-2aa5f37a-6713-4966-8967-78202ecffb97.png)
