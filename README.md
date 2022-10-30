@@ -1,5 +1,5 @@
 # Kravets-Family
-Our family website. Just for fun
+Our family website. Just for fun (PET project)
 
 	cp .env.dist .env
 	make build
@@ -16,3 +16,5 @@ Our family website. Just for fun
 
     create controller:
     php bin/console make:controller
+
+Swagger: /api/doc
